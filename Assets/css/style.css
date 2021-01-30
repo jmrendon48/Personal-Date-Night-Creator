@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-container {
+    width: 100%;
+}
+
+h1 {
+    margin: 20px;
+    height: 80px;
+    color: white;
+}
+
+form {
+    margin: 20px;
+}
+
+.date-select-container, .genre-select-container, .food-type-select-container, .submit-button-container {
+    margin: auto;
+    margin: 0;
+    padding: 10px;
+}
+
+#date, #year {
+    background: white;
+    border-bottom: 0;
+    border-radius: 5px;
+}
+
+select {
+    display: block;
+}
+
+label {
+    font-size: 20px;
+    color: black;
+}
+
+.form-button {
+    padding: 5px 10px;
+
+}
+
+.food-section, .movie-section {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.movie-poster {
+    width: 250px;
+    height: 300px;
+}

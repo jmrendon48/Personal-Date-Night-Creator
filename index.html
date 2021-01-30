@@ -4,15 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Date Night Creator</title>
-    <!-- stylesheet for Pure CSS library -->
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" 
-    integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd" 
-    crossorigin="anonymous">
-    <!-- stylesheet for custom CSS-->
+    <!-- stylesheet for Materialize CSS library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- stylesheet for custom CSS -->
     <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
 <body>
-    
+    <!-- container for page content -->
+    <main class=" row white">
+        <!-- column containing header -->
+        <div class="col s12 pink darken-3 header-container">
+            <header>
+                <div>
+                    <h1 class="center-align">Personal Date Night Creator</h1>
+                </div>
+            </header>
+        </div>
+
+        <!-- column containing form and date night history list -->
+        <div class="col m3">
+            <form id="date-form white">
+                <!-- date select -->
+                <div class="pink lighten-2 date-select-container">
+                    <label for="date">Set a date:</label>
+                    <input type="date" id="date" name="set-date">
+                </div>
+
+                <!-- genre select -->
+                <div class="pink lighten-2 genre-select-container">
+                    <label for="genres">Pick a movie:</label>
+                    <input type="text" id="year" name="set-year" placeholder="Pick A Year">
+                    <select id="genres" name="genre-list">
+                        <!-- insert values of different genres -->
+                        <option value="">Genre</option>
+                        <option value="">Comedy</option>
+                        <option value="">Action</option>
+                        <option value="">Drame</option>
+                        <option value="">Horror</option>
+                    </select>
+                </div>
+
+                <!-- food type select -->
+                <div class="pink lighten-2 food-type-select-container">
+                    <label for="food-types">Pick your meal:</label>
+                    <select id="food-types" name="food-type-list">
+                        <!-- insert values of different food styles -->
+                        <option value="">Cuisine Style</option>
+                        <option value="">Mexican</option>
+                        <option value="">Vegan</option>
+                        <option value="">Japanese</option>
+                        <option value="">Italian</option>
+                    </select>
+                </div>
+
+                <!-- submit button -->
+                <div class="pink lighten-2 submit-button-container">
+                    <input id="form-button" type="submit" class="form-button">
+                </div>
+            </form>
+        </div>
+
+        <!-- column containing food sections -->
+        <div class="col m5">
+            <!-- food section -->
+            <div class="food-section">
+                
+            </div>
+        </div>
+
+        <!-- column containing movie section -->
+        <div class="col m4">
+            <!-- movie section -->
+            <div class="movie-section">
+                <h2>Now Showing:</h2>
+                <!-- anchor linking to movie website -->
+                <a href="" class="poster-anchor">
+                    <!-- image of movie poster -->
+                    <img src="./Assets/images/movie-poster-placeholder.jpg" alt="movie poster" class="movie-poster">
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- script for Materialize library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>        
+    <!-- script for custom js -->
     <script src="./Assets/js/script.js"></script>
 </body>
 </html>

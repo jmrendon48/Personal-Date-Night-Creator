@@ -8,7 +8,7 @@ creating a personal date night experience.
 
 ## CSS Framework
 
-Pure CSS
+Materialize
 
 ## APIs
 
