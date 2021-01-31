@@ -1,17 +1,21 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.header-container {
-    width: 100%;
+body {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
     margin: 20px;
-    height: 80px;
-    color: white;
+    color: var(--primary-color);
 }
 
 form {
@@ -25,9 +29,13 @@ form {
 }
 
 #date, #year {
-    background: white;
+    background: var(--primary-color);
     border-bottom: 0;
     border-radius: 5px;
+}
+
+.date-select-container label input {
+    margin: 10px;
 }
 
 select {
@@ -36,7 +44,7 @@ select {
 
 label {
     font-size: 20px;
-    color: black;
+    color: var(--secondary-color);
 }
 
 .form-button {
@@ -45,7 +53,7 @@ label {
 }
 
 .food-section, .movie-section {
-    border: 2px solid black;
+    border: 2px solid var(--secondary-color);
     border-radius: 5px;
     margin: 20px 5px;
     padding: 10px;
