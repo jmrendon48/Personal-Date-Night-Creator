@@ -6,6 +6,8 @@
     <title>Personal Date Night Creator</title>
     <!-- stylesheet for Materialize CSS library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
     <!-- stylesheet for custom CSS -->
     <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
@@ -33,10 +35,10 @@
                 <!-- genre select -->
                 <div class="indigo lighten-3 genre-select-container">
                     <label for="genres">Pick A Movie:</label>
-                    <input type="text" id="year" name="set-year" placeholder="Pick A Year">
+                    <input type="text" class="year-selector" name="set-year" id="year" maxlength="4" placeholder="Pick A Year">
                     <select id="genres" name="genre-list">
                         <!-- insert values of different genres -->
-                        <option value="genre" selected disabled>Genre</option>
+                        <option value="genre" selected>Genre</option>
                         <option value="28">Action</option>
                         <option value="12">Adventure</option>
                         <option value="16">Animation</option>
@@ -63,7 +65,7 @@
                     <label for="food-types">Pick Your Meal:</label>
                     <select id="food-types" name="food-type-list">
                         <!-- insert values of different food styles -->
-                        <option value="cuisine-style" selected disabled>Cuisine Style</option>
+                        <option value="cuisine-style" selected>Cuisine Style</option>
                         <option value="any">Any</option>
                         <option value="american">American</option>
                         <option value="asian">Asian</option>
@@ -93,7 +95,9 @@
 
                 <!-- submit button -->
                 <div class="indigo lighten-3 submit-button-container">
-                    <input id="form-button" type="submit" class="form-button">
+                    <div class="error">
+                    </div>
+                    <button id="movie-btn" type="button" class="form-button btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
@@ -128,7 +132,18 @@
     </main>
 
     <!-- script for Materialize library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
+    
+    
+    
+   
+    
     <!-- script for custom js -->
     <script src="./Assets/js/script.js"></script>
 </body>

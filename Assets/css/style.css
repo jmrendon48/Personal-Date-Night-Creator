@@ -47,11 +47,6 @@ label {
     color: var(--secondary-color);
 }
 
-.form-button {
-    padding: 5px 10px;
-
-}
-
 .food-section, .movie-section {
     border: 2px solid var(--secondary-color);
     border-radius: 5px;
@@ -72,6 +67,14 @@ h2 {
     margin-right: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.error {
+    background-color: #001058;
+    color: #c50000;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    text-align: center;
 }
 
 .ingredients-title {
