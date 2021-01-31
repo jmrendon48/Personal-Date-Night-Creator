@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
 <body>
-    <!-- container for page content -->
+    <!-- page content -->
     <main class=" row white">
         <!-- column containing header -->
-        <div class="col s12 pink darken-3 header-container">
+        <div class="col s12 indigo darken-4 header-container">
             <header>
                 <div>
                     <h1 class="center-align">Personal Date Night Creator</h1>
@@ -21,18 +21,18 @@
             </header>
         </div>
 
-        <!-- column containing form and date night history list -->
-        <div class="col m3">
+        <!-- column containing form -->
+        <div class="col l3">
             <form id="date-form white">
                 <!-- date select -->
-                <div class="pink lighten-2 date-select-container">
-                    <label for="date">Set a date:</label>
+                <div class="indigo lighten-3 date-select-container">
+                    <label for="date">Set A Date:</label>
                     <input type="date" id="date" name="set-date">
                 </div>
 
                 <!-- genre select -->
-                <div class="pink lighten-2 genre-select-container">
-                    <label for="genres">Pick a movie:</label>
+                <div class="indigo lighten-3 genre-select-container">
+                    <label for="genres">Pick A Movie:</label>
                     <input type="text" id="year" name="set-year" placeholder="Pick A Year">
                     <select id="genres" name="genre-list">
                         <!-- insert values of different genres -->
@@ -45,8 +45,8 @@
                 </div>
 
                 <!-- food type select -->
-                <div class="pink lighten-2 food-type-select-container">
-                    <label for="food-types">Pick your meal:</label>
+                <div class="indigo lighten-3 food-type-select-container">
+                    <label for="food-types">Pick Your Meal:</label>
                     <select id="food-types" name="food-type-list">
                         <!-- insert values of different food styles -->
                         <option value="">Cuisine Style</option>
@@ -58,29 +58,36 @@
                 </div>
 
                 <!-- submit button -->
-                <div class="pink lighten-2 submit-button-container">
+                <div class="indigo lighten-3 submit-button-container">
                     <input id="form-button" type="submit" class="form-button">
                 </div>
             </form>
         </div>
 
         <!-- column containing food sections -->
-        <div class="col m5">
+        <div class="col l5">
             <!-- food section -->
             <div class="food-section">
-                
+                <img src="https://spoonacular.com/recipeImages/716429-556x370.jpg" alt="food image" class="food-image">
+                <h2 id="food-title" class="center-align food-title">Food title</h2>
+                <p class="ingredients-title">Ingredients:</p>
+                <ul id="ingredient-list">
+                    <li class="ingredient">list item</li>
+                    <li class="ingredient">list item</li>
+                    <li class="ingredient">list item</li>
+                </ul>
             </div>
         </div>
 
         <!-- column containing movie section -->
-        <div class="col m4">
+        <div class="col l4">
             <!-- movie section -->
             <div class="movie-section">
-                <h2>Now Showing:</h2>
+                <h2 class="center-align">Feature Film:</h2>
                 <!-- anchor linking to movie website -->
-                <a href="" class="poster-anchor">
+                <a href="" id="poster-anchor" class="poster-anchor">
                     <!-- image of movie poster -->
-                    <img src="./Assets/images/movie-poster-placeholder.jpg" alt="movie poster" class="movie-poster">
+                    <img src="./Assets/images/movie-poster-placeholder.jpg" alt="movie poster" id="movie-poster" class="movie-poster">
                 </a>
             </div>
         </div>
