@@ -1,4 +1,4 @@
-# Personal-Date-Night-Creator
+# Personal Date Night Creator
 
 ## Description
 
