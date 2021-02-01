@@ -22,6 +22,10 @@ form {
     margin: 20px 10px;
 }
 
+#date, #year {
+    padding-left: 3px;
+}
+
 .date-select-container, .genre-select-container, .food-type-select-container, .submit-button-container {
     margin: auto;
     margin: 0;
@@ -73,7 +77,7 @@ h2 {
     background-color: #001058;
     color: #c50000;
     margin-bottom: 10px;
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: center;
 }
 
