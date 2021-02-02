@@ -8,7 +8,11 @@ creating a personal date night experience.
 
 ## CSS Framework
 
-Materialize
+- Materialize
+
+## JavaScript Libraries
+
+- JQuery
 
 ## APIs
 
