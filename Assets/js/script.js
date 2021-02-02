@@ -1,4 +1,4 @@
-// Movie generator
+// Movie and Food Generator
 $("#movie-btn").on("click", function findMovie() {
     userEntries();
     randomMovieGenerator();
