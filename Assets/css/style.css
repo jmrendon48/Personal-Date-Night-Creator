@@ -30,6 +30,11 @@ form {
     padding-left: 3px;
 }
 
+.datepicker::-webkit-inner-spin-button, .datepicker::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
 .date-select-container, .genre-select-container, .food-type-select-container, .submit-button-container {
     margin: auto;
     margin: 0;
