@@ -83,11 +83,11 @@ h2 {
 }
 
 .error {
-    background-color: #001058;
-    color: #c50000;
-    margin-bottom: 10px;
-    border-radius: 10px;
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 5px;
     text-align: center;
+    padding: 5px;
 }
 
 .ingredients-title {

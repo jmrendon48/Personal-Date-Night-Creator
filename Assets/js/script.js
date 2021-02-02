@@ -19,14 +19,15 @@ $("#movie-btn").on("click", function findMovie() {
 
   // check for invalid year input
   if (genre === "genre") {
-      $(".error").text("Please choose a genre.");
+      $("#error").text("Please choose a genre.");
   } else if (releaseYear > 2021 || releaseYear < 1900) {
-      $(".error").text("Please choose a year between 1900 and 2021.");
+      $("#error").text("Please choose a year between 1900 and 2021.");
   } else if (parseInt(releaseYear) != releaseYear) {
-      $(".error").text("Your year must be a four-digit number.");
+      $("#error").text("Your year must be a four-digit number.");
   } else {
-    $(".error").text("");
+    $("#error").text("");
   }
+  $("#error").addClass("error");
 };
 
 // add function to generate a random movie
