@@ -60,6 +60,19 @@ label {
     color: var(--secondary-color);
 }
 
+a {
+    text-decoration: none;
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.planned-dates-container {
+    text-align: center;
+}
+
+
 .food-section, .movie-section {
     border: 2px solid var(--secondary-color);
     border-radius: 5px;
