@@ -1,3 +1,11 @@
+// set minimum date of datepicker
+$(document).ready(function () {
+  $(".datepicker").datepicker({
+      minDate: 0,
+  })
+  console.log($(".datepicker"));
+});
+
 // Movie generator
 $("#movie-btn").on("click", function findMovie() {
     userEntries();
