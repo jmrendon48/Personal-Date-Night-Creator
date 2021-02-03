@@ -6,6 +6,8 @@
     <title>Personal Date Night Creator</title>
     <!-- stylesheet for Materialize CSS library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
     <!-- stylesheet for custom CSS -->
     <link rel="stylesheet" href="./Assets/css/style.css" />
 </head>
@@ -27,7 +29,7 @@
                 <!-- date select -->
                 <div class="indigo lighten-3 date-select-container">
                     <label for="date">Set A Date:</label>
-                    <input type="text" id="date" name="set-date" class="date-input datepicker" placeholder="mm/dd/yyyy">
+                    <input type="text" id="date" name="set-date" class="date-input datepicker" placeholder="Pick A Date">
                 </div>
 
                 <!-- genre select -->
@@ -88,11 +90,18 @@
 
                 <!-- submit button -->
                 <div class="indigo lighten-3 submit-button-container">
-                    <div class="error">
+                    <!-- displays error message if needed -->
+                    <div id="error" class="pink accent-2">
                     </div>
-                    <button id="movie-btn" type="button" class="form-button btn btn-primary">Submit</button>
+                    <button id="movie-btn" type="button" class="form-button btn btn-primary indigo">Submit</button>
                 </div>
             </form>
+
+            <div>
+                <!-- Modal Trigger -->
+                <button data-target="planned-dates-modal" class="btn modal-trigger light-blue darken-4">View Planned Dates</button>
+            </div>
+            
         </div>
 
         <!-- column containing food sections -->
@@ -139,11 +148,32 @@
             <!-- footer -->
             <footer></footer>
         </div>
+
+        <!-- modal containing planned dates -->
+        <div id="planned-dates-modal" class="modal">
+            <div class="modal-content">
+                <!-- modal title -->
+                <div>
+                    <h4>Planned Dates:</h4>
+                </div>
+                <!-- planned dates list -->
+                <div>
+                    <ul id="planned-dates-list">
+
+                    </ul>
+                </div>
+            </div>
+            <!-- button to close modal -->
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+        </div>
     </main>
 
-    <!-- script for Materialize library -->
+    <!-- script for JQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
+    <!-- script for Materialize library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- script for custom js -->
     <script src="./Assets/js/script.js"></script>
 </body>
