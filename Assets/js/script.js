@@ -17,7 +17,6 @@ $(document).ready(function(){
 $("#movie-btn").on("click", function findMovie() {
     userEntries();
     randomMovieGenerator();
-    //mealGenerator();
   });
 
   // add function to test validity of user entries
@@ -28,13 +27,13 @@ $("#movie-btn").on("click", function findMovie() {
 
   // check for invalid year input
   if (genre === "genre") {
-      $("#error").text("Please choose a genre.");
+      $("#error").text("Please choose a genre");
       $("#error").addClass("error");
   } else if (releaseYear > 2021 || releaseYear < 1900) {
-      $("#error").text("Please choose a year between 1900 and 2021.");
+      $("#error").text("Please choose a year between 1900 and 2021");
       $("#error").addClass("error");
   } else if (parseInt(releaseYear) != releaseYear) {
-      $("#error").text("Your year must be a four-digit number.");
+      $("#error").text("Your year must be a four-digit number");
       $("#error").addClass("error");
   } else if (cuisineStyle === "cuisine-style") {
     $(".error").text("Please choose a Cuisine Style"); 
@@ -93,7 +92,6 @@ let randomMovieGenerator = function() {
                   movieDiv.append(movieTitle, movieStream, movieTrailer);
                   // Call meal generator function
                   mealGenerator();
-
                   savePlannedDates(title, fourDigitYear);
                 });
             }
@@ -135,7 +133,6 @@ let createMeal = function(meal) {
     let videoTitle = $("<h5>").attr("class", "videoTitle").text("Recipe Video");
     let recipeVideo = "";
 
-
 	// Get all ingredients from the object. Up to 3
 	for(let i = 1; i <= 3; i++) {
         let mealIngredient = $("<li>").attr("class", "ingredient").text(`${meal[`strIngredient${i}`]}`); 
@@ -158,7 +155,7 @@ let createMeal = function(meal) {
 let savePlannedDates = function(title, fourDigitYear) {
   // get value of submitted date
   let date = $("#date").val();
-  console.log(date);
+ // console.log(date);
 
   // add date to li
   let savedDateEntry = $("<li>");
