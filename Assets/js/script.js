@@ -16,31 +16,28 @@ $(document).ready(function(){
 // Movie generator
 $("#movie-btn").on("click", function findMovie() {
     userEntries();
-    randomMovieGenerator();
-  });
+});
 
   // add function to test validity of user entries
-  let userEntries = function () {
+let userEntries = function () {
   let releaseYear = $(".year-selector").val().trim();
   let genre = $("#genres").val();
   let cuisineStyle = $("#food-types").val();
 
-  // check for invalid year input
+  $("#error").addClass("error");
+  // check for invalid input
   if (genre === "genre") {
-      $("#error").text("Please choose a genre");
-      $("#error").addClass("error");
+      $("#error").text("Please choose a genre.");
   } else if (releaseYear > 2021 || releaseYear < 1900) {
-      $("#error").text("Please choose a year between 1900 and 2021");
-      $("#error").addClass("error");
+      $("#error").text("Please choose a year between 1900 and 2021.");
   } else if (parseInt(releaseYear) != releaseYear) {
-      $("#error").text("Your year must be a four-digit number");
-      $("#error").addClass("error");
+      $("#error").text("Your year must be a four-digit number.");
   } else if (cuisineStyle === "cuisine-style") {
     $(".error").text("Please choose a Cuisine Style"); 
-    $("#error").addClass("error");
   } else {
     $("#error").text("");
     $("#error").removeClass("error");
+    randomMovieGenerator();
   }
 };
 
