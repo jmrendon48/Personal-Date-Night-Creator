@@ -109,6 +109,7 @@ let createMeal = function(meal) {
     $(".ingredient").remove();
     $(".food-title").remove();
     $(".videoWrapper").remove();
+    $(".videoTitle").remove();
 
     // create variables from the data from API
     let mealImgDiv = $("#meal-image");
@@ -117,8 +118,9 @@ let createMeal = function(meal) {
     let mealImg = $("<img>").attr({ "src": meal.strMealThumb, "class": "food-image"});
     let ingredientList = $("#ingredient-list");
     let foodTitle = $("<h3>").attr("class", "food-title").text(meal.strMeal);
+    let videoTitle = $("<h5>").attr("class", "videoTitle").text("Recipe Video");
     let recipeVideo = "";
-    
+
 
 	// Get all ingredients from the object. Up to 3
 	for(let i = 1; i <= 3; i++) {
@@ -132,7 +134,7 @@ let createMeal = function(meal) {
     // checking if the youtube video exists
     if (meal.strYoutube) {
         recipeVideo = $("<iframe>").attr("class", "videoWrapper").attr("src", `https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}`);
-        videoDiv.append(recipeVideo);
+        videoDiv.append(videoTitle, recipeVideo);
     } else {
        recipeVideo = "";
     }
