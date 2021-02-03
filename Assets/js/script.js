@@ -10,21 +10,25 @@ $(document).ready(function () {
 $("#movie-btn").on("click", function findMovie() {
     userEntries();
     randomMovieGenerator();
+    //mealGenerator();
   });
 
   // add function to test validity of user entries
   let userEntries = function () {
   let releaseYear = $(".year-selector").val().trim();
   let genre = $("#genres").val();
+  let cuisineStyle = $("#food-types").val();
 
   // check for invalid year input
   if (genre === "genre") {
-      $(".error").text("Please choose a genre.");
+      $(".error").text("Please choose a genre");
   } else if (releaseYear > 2021 || releaseYear < 1900) {
-      $(".error").text("Please choose a year between 1900 and 2021.");
+      $(".error").text("Please choose a year between 1900 and 2021");
   } else if (parseInt(releaseYear) != releaseYear) {
-      $(".error").text("Your year must be a four-digit number.");
-  } else {
+      $(".error").text("Your year must be a four-digit number");
+  } else if (cuisineStyle === "cuisine-style") {
+    $(".error").text("Please choose a Cuisine Style"); 
+} else {
     $(".error").text("");
   }
 };
@@ -75,9 +79,62 @@ let randomMovieGenerator = function() {
                   // append new content to movie section 
                   movieStream.append(movieImg);
                   movieDiv.append(movieTitle, movieStream, movieTrailer);
+                  // Call meal generator function
+                  mealGenerator();
                 });
             }
       });
 };
 
+// add function to get random food
+let mealGenerator = function() {
+    let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
+    fetch(apiUrl)
+        // retreive data from API and search for random food in array
+      .then(function (response) {
+          if (response.ok) {
+          response.json().then(function(data) {
+            createMeal(data.meals[0]);
+          });
+        } else {
+            alert("Error: " + response.statusText);
+        }
+    });
+};
+
+// add function to create a meal section
+let createMeal = function(meal) {
+    // remove previous content
+    $(".food-image").remove();
+    $(".ingredient").remove();
+    $(".food-title").remove();
+    $(".videoWrapper").remove();
+
+    // create variables from the data from API
+    let mealImgDiv = $("#meal-image");
+    let foodTitleDiv = $("#food-title");
+    let videoDiv = $("#videoWrapper")
+    let mealImg = $("<img>").attr({ "src": meal.strMealThumb, "class": "food-image"});
+    let ingredientList = $("#ingredient-list");
+    let foodTitle = $("<h3>").attr("class", "food-title").text(meal.strMeal);
+    let recipeVideo = "";
+    
+
+	// Get all ingredients from the object. Up to 3
+	for(let i = 1; i <= 3; i++) {
+        let mealIngredient = $("<li>").attr("class", "ingredient").text(`${meal[`strIngredient${i}`]}`); 
+        ingredientList.append(mealIngredient);
+    }
+    // append new content to food section 
+    mealImgDiv.append(mealImg);
+    foodTitleDiv.append(foodTitle);
+
+    // checking if the youtube video exists
+    if (meal.strYoutube) {
+        recipeVideo = $("<iframe>").attr("class", "videoWrapper").attr("src", `https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}`);
+        videoDiv.append(recipeVideo);
+    } else {
+       recipeVideo = "";
+    }
+};
 

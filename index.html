@@ -6,7 +6,6 @@
     <title>Personal Date Night Creator</title>
     <!-- stylesheet for Materialize CSS library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
     <!-- stylesheet for custom CSS -->
     <link rel="stylesheet" href="./Assets/css/style.css" />
 </head>
@@ -65,30 +64,25 @@
                     <select id="food-types" name="food-type-list">
                         <!-- insert values of different food styles -->
                         <option value="cuisine-style" selected>Cuisine Style</option>
-                        <option value="any">Any</option>
-                        <option value="american">American</option>
-                        <option value="asian">Asian</option>
-                        <option value="bakery">Bakery</option>
-                        <option value="bbq">BBQ</option>
-                        <option value="burgers">Burgers</option>
-                        <option value="deli">Deli</option>
-                        <option value="gluten-free">Gluten Free</option>
-                        <option value="greek">Greek</option>
-                        <option value="indian">Indian</option>
-                        <option value="italian">Italian</option>
-                        <option value="japanese">Japanese</option>
-                        <option value="korean">Korean</option>
-                        <option value="mediterranean">Mediterranean</option>
-                        <option value="mexican">Mexican</option>
-                        <option value="pizza">Pizza</option>
-                        <option value="salad">Salad</option>
-                        <option value="seafood">Seafood</option>
-                        <option value="spanish">Spanish</option>
-                        <option value="steakhouse">Steakhouse</option>
-                        <option value="sushi">Sushi</option>
-                        <option value="thai">Thai</option>
-                        <option value="vegan">Vegan</option>
-                        <option value="vegetarian">Vegetarian</option>
+                        <option value="Unknown">Unknown</option>
+                        <option value="American">American</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Greek">Greek</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="Indian">Indian</option>
+                        <option value="Thai">Thai</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Egyptian">Egyptian</option>
+                        <option value="French">French</option>
+                        <option value="Jamaican">Jamaican</option>
+                        <option value="Canadian">Canadian</option>
+                        <option value="Moroccan">Moroccan</option>
+                        <option value="Irish">Irish</option>
+                        <option value="Kenyan">Kenyan</option>
+                        <option value="Tunisian">Tunisian</option>
+                        <option value="Dutch">Dutch</option>
                     </select>
                 </div>
 
@@ -105,14 +99,29 @@
         <div class="col l5">
             <!-- food section -->
             <div class="food-section">
+                <div id="meal-image">
                 <img src="https://spoonacular.com/recipeImages/716429-556x370.jpg" alt="food image" class="food-image">
-                <h2 id="food-title" class="center-align food-title">Food title</h2>
+            </div>
+            <div id="food-title">
+                <h3 class="center-align food-title">Food title</h3>
+            </div>
                 <p class="ingredients-title">Ingredients:</p>
-                <ul id="ingredient-list">
+                <ul id="ingredient-list" class="ingredient-list">
                     <li class="ingredient">list item</li>
                     <li class="ingredient">list item</li>
                     <li class="ingredient">list item</li>
                 </ul>
+                <div class="row">
+                    
+                    <div id="videoWrapper">
+                        <h5>Video Recipe</h5>
+                        <iframe class="videoWrapper" src="https://www.youtube.com/embed/mhDJNfV7hjk" 
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>  
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
 

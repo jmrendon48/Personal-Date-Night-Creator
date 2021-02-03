@@ -67,6 +67,10 @@ label {
     padding: 10px;
 }
 
+.food-title {
+    text-align: center;
+}
+
 h2 {
     margin: 0;
 }
@@ -91,11 +95,17 @@ h2 {
 }
 
 .ingredients-title {
-    font-size: 28px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .ingredient {
-    font-size: 25px;
+    font-size: 22px;
+}
+
+.videoWrapper {
+    width: 320px;
+    height: 320px;
 }
 
 .movie-poster {
