@@ -3,7 +3,7 @@ let savedDates = [];
 // set minimum date of datepicker
 $(document).ready(function () {
   $(".datepicker").datepicker({
-    minDate: 0,
+    minDate: new Date()
   })
 });
 
@@ -92,6 +92,7 @@ let randomMovieGenerator = function() {
                   movieDiv.append(movieTitle, movieStream, movieTrailer);
                   // Call meal generator function
                   mealGenerator();
+
                   savePlannedDates(title, fourDigitYear);
                 });
             }
@@ -133,6 +134,7 @@ let createMeal = function(meal) {
     let videoTitle = $("<h5>").attr("class", "videoTitle").text("Recipe Video");
     let recipeVideo = "";
 
+
 	// Get all ingredients from the object. Up to 3
 	for(let i = 1; i <= 3; i++) {
         let mealIngredient = $("<li>").attr("class", "ingredient").text(`${meal[`strIngredient${i}`]}`); 
@@ -155,7 +157,7 @@ let createMeal = function(meal) {
 let savePlannedDates = function(title, fourDigitYear) {
   // get value of submitted date
   let date = $("#date").val();
- // console.log(date);
+  console.log(date);
 
   // date info
   let plannedDateInfo = `${date}: Food Name + ${title} (${fourDigitYear})`;
