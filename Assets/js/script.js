@@ -3,8 +3,12 @@ $(document).ready(function () {
   $(".datepicker").datepicker({
       minDate: 0,
   })
-  console.log($(".datepicker"));
 });
+
+// open planned dates modal
+$(document).ready(function(){
+    $('.modal').modal();
+  });
 
 // Movie generator
 $("#movie-btn").on("click", function findMovie() {
@@ -20,14 +24,17 @@ $("#movie-btn").on("click", function findMovie() {
   // check for invalid year input
   if (genre === "genre") {
       $("#error").text("Please choose a genre.");
+      $("#error").addClass("error");
   } else if (releaseYear > 2021 || releaseYear < 1900) {
       $("#error").text("Please choose a year between 1900 and 2021.");
+      $("#error").addClass("error");
   } else if (parseInt(releaseYear) != releaseYear) {
       $("#error").text("Your year must be a four-digit number.");
+      $("#error").addClass("error");
   } else {
     $("#error").text("");
+    $("#error").removeClass("error");
   }
-  $("#error").addClass("error");
 };
 
 // add function to generate a random movie
