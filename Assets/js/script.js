@@ -1,12 +1,19 @@
+let savedDates = [];
+let newDate = {};
+
 // set minimum date of datepicker
 $(document).ready(function () {
   $(".datepicker").datepicker({
       minDate: 0,
   })
-  console.log($(".datepicker"));
 });
 
-// Movie and Food Generator
+// open planned dates modal
+$(document).ready(function(){
+  $('.modal').modal();
+});  
+
+// Movie generator
 $("#movie-btn").on("click", function findMovie() {
     userEntries();
     randomMovieGenerator();
@@ -21,15 +28,20 @@ $("#movie-btn").on("click", function findMovie() {
 
   // check for invalid year input
   if (genre === "genre") {
-      $(".error").text("Please choose a genre");
+      $("#error").text("Please choose a genre.");
+      $("#error").addClass("error");
   } else if (releaseYear > 2021 || releaseYear < 1900) {
-      $(".error").text("Please choose a year between 1900 and 2021");
+      $("#error").text("Please choose a year between 1900 and 2021.");
+      $("#error").addClass("error");
   } else if (parseInt(releaseYear) != releaseYear) {
-      $(".error").text("Your year must be a four-digit number");
+      $("#error").text("Your year must be a four-digit number.");
+      $("#error").addClass("error");
   } else if (cuisineStyle === "cuisine-style") {
     $(".error").text("Please choose a Cuisine Style"); 
-} else {
-    $(".error").text("");
+    $("#error").addClass("error");
+  } else {
+    $("#error").text("");
+    $("#error").removeClass("error");
   }
 };
 
@@ -81,6 +93,8 @@ let randomMovieGenerator = function() {
                   movieDiv.append(movieTitle, movieStream, movieTrailer);
                   // Call meal generator function
                   mealGenerator();
+
+                  savePlannedDates(title, fourDigitYear);
                 });
             }
       });
@@ -136,5 +150,19 @@ let createMeal = function(meal) {
     } else {
        recipeVideo = "";
     }
+};
+
+// add function to save planned dates
+let savePlannedDates = function(title, fourDigitYear) {
+  // get value of submitted date
+  let date = $("#date").val();
+  console.log(date);
+
+  // add date to li
+  let savedDateEntry = $("<li>");
+  savedDateEntry.text(`${date}: Food Name + ${title} (${fourDigitYear})`);
+
+  // append li to saved dates list
+  $("#planned-dates-list").append(savedDateEntry);
 };
 

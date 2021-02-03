@@ -60,6 +60,19 @@ label {
     color: var(--secondary-color);
 }
 
+a {
+    text-decoration: none;
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.planned-dates-container {
+    text-align: center;
+}
+
+
 .food-section, .movie-section {
     border: 2px solid var(--secondary-color);
     border-radius: 5px;
@@ -69,6 +82,12 @@ label {
 
 .food-title {
     text-align: center;
+}
+
+.modal-trigger {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 h2 {
@@ -87,11 +106,11 @@ h2 {
 }
 
 .error {
-    background-color: #001058;
-    color: #c50000;
-    margin-bottom: 10px;
-    border-radius: 10px;
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 5px;
     text-align: center;
+    padding: 5px;
 }
 
 .ingredients-title {
