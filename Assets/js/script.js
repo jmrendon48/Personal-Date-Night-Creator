@@ -1,3 +1,6 @@
+let savedDates = [];
+let newDate = {};
+
 // set minimum date of datepicker
 $(document).ready(function () {
   $(".datepicker").datepicker({
@@ -7,8 +10,8 @@ $(document).ready(function () {
 
 // open planned dates modal
 $(document).ready(function(){
-    $('.modal').modal();
-  });
+  $('.modal').modal();
+});  
 
 // Movie generator
 $("#movie-btn").on("click", function findMovie() {
@@ -83,9 +86,24 @@ let randomMovieGenerator = function() {
                   // append new content to movie section 
                   movieStream.append(movieImg);
                   movieDiv.append(movieTitle, movieStream, movieTrailer);
+
+                  savePlannedDates(title, fourDigitYear);
                 });
             }
       });
 };
 
+// add function to save planned dates
+let savePlannedDates = function(title, fourDigitYear) {
+  // get value of submitted date
+  let date = $("#date").val();
+  console.log(date);
+
+  // add date to li
+  let savedDateEntry = $("<li>");
+  savedDateEntry.text(`${date}: Food Name + ${title}(${fourDigitYear})`);
+
+  // append li to saved dates list
+  $("#planned-dates-list").append(savedDateEntry);
+};
 

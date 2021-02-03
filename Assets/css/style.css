@@ -80,6 +80,12 @@ a {
     padding: 10px;
 }
 
+.modal-trigger {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 h2 {
     margin: 0;
 }
