@@ -26,10 +26,14 @@ let userEntries = function () {
   let releaseYear = $(".year-selector").val().trim();
   let genre = $("#genres").val();
   let cuisineStyle = $("#food-types").val();
+  let date = $("#date").val();
 
   $("#error").addClass("error");
   // check for invalid input
-  if (genre === "genre") {
+  
+  if (date === "") {
+    $("#error").text("Please pick a date.");
+  } else if (genre === "genre") {
       $("#error").text("Please choose a genre.");
   } else if (releaseYear > 2021 || releaseYear < 1900) {
       $("#error").text("Please choose a year between 1900 and 2021.");
