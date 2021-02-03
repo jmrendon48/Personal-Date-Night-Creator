@@ -18,7 +18,7 @@ creating a personal date night experience.
 
 -[The Movie Database API](https://developers.themoviedb.org/3 "The Movie Database API")
 
--[spoonacular API](https://spoonacular.com/food-api "spoonacular")
+-[The Meal Database API](https://www.themealdb.com/api/json/v1/1/random.php "The Meal Database API")
 
 ## Screenshot
 
