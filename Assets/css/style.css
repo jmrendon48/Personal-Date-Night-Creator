@@ -127,14 +127,25 @@ h2 {
     font-size: 25px;
 }
 
+#foodCategoryArea {
+    padding: 0 0 0 25px;
+}
+
 .food-category-area {
     font-size: 25px;
     font-weight: normal;
 }
 
+#videoWrapper {
+    padding: 0 35px 0 35px;
+}
+
 .videoWrapper {
     width: 320px;
-    height: 320px;
+    height: 240px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .movie-poster {
