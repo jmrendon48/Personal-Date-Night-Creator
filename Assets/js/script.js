@@ -90,23 +90,21 @@ let randomMovieGenerator = function() {
                   movieStream.append(movieImg);
                   movieDiv.append(movieTitle, movieStream, movieTrailer);
                   // Call meal generator function
-                  mealGenerator();
-
-                  savePlannedDates(title, fourDigitYear);
+                  mealGenerator(title, fourDigitYear);
                 });
             }
       });
 };
 
 // add function to get random food
-let mealGenerator = function() {
+let mealGenerator = function(title, fourDigitYear) {
     let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
     fetch(apiUrl)
         // retreive data from API and search for random food in array
       .then(function (response) {
           if (response.ok) {
           response.json().then(function(data) {
-            createMeal(data.meals[0]);
+            createMeal(data.meals[0], title, fourDigitYear) ;
           });
         } else {
             alert("Error: " + response.statusText);
@@ -115,7 +113,7 @@ let mealGenerator = function() {
 };
 
 // add function to create a meal section
-let createMeal = function(meal) {
+let createMeal = function(meal, title, fourDigitYear) {
     // remove previous content
     $(".food-image").remove();
     $(".food-title").remove();
@@ -133,8 +131,10 @@ let createMeal = function(meal) {
     let foodCategoryAreaDiv = $("#foodCategoryArea");
     let mealImg = $("<img>").attr({ "src": meal.strMealThumb, "class": "food-image"});
     let foodTitle = $("<h3>").attr("class", "food-title").text(meal.strMeal);
+    let foodName = meal.strMeal;
     let videoTitle = $("<h5>").attr("class", "videoTitle").text("Recipe Video:");
     let foodArea = $("<h5>").attr("class", "foodArea").text("Area: ").append($("<span>").attr("class", "food-category-area").text(meal.strArea));
+    let foodAreaName= meal.strArea;
     let foodCategory = $("<h5>").attr("class", "foodCategory").text("Category: ").append($("<span>").attr("class", "food-category-area").text(meal.strCategory));
     let recipeVideo = "";
 
@@ -156,18 +156,19 @@ let createMeal = function(meal) {
         for(let i = 1; i <= 3; i++) {
         let mealIngredient = $("<li>").attr("class", "ingredient").text(`${meal[`strIngredient${i}`]}`); 
         videoDiv.append(mealIngredient);
+      }
     }
-  }
+    savePlannedDates(foodName, foodAreaName, title, fourDigitYear);
 };
 
 // add function to save planned dates
-let savePlannedDates = function(title, fourDigitYear) {
+let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
   // get value of submitted date
   let date = $("#date").val();
-  console.log(date);
 
   // date info
-  let plannedDateInfo = `${date}: Food Name + ${title} (${fourDigitYear})`;
+  let plannedDateInfo = `-${date}: ${foodName} (${foodAreaName}) + ${title} (${fourDigitYear})`;
+  console.log(plannedDateInfo)
 
   // load previous dates into savedDates array
   if (savedDates.length > 0) {
@@ -193,6 +194,7 @@ let loadDates = function() {
     // add date to li
     let plannedDateEntry = $("<li>");
     plannedDateEntry.text(savedDatesEntries[x]);
+    plannedDateEntry.addClass("planned-date-entry");
 
     // append li to saved dates list
     $("#planned-dates-list").append(plannedDateEntry);

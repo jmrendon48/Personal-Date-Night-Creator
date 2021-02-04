@@ -158,10 +158,19 @@ h2 {
     display: block;
 }
 
+.trailer {
+    background-color: darkblue;
+}
+
 footer {
     background-image: url(../images/Movie-image.png);
     background-position: center;
     background-size: cover;
     width: 100%;
-    min-height: 285px;
+    min-height: 200px;
+}
+
+.planned-date-entry {
+    font-size: 18px;
+    padding: 2px;
 }
