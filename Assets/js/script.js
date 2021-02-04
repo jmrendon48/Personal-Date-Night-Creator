@@ -1,17 +1,20 @@
 let savedDates = [];
-let newDate = {};
 
 // set minimum date of datepicker
 $(document).ready(function () {
   $(".datepicker").datepicker({
-      minDate: 0,
+    minDate: new Date()
   })
 });
 
 // open planned dates modal
 $(document).ready(function(){
-  $('.modal').modal();
+  $(".modal").modal();
 });  
+
+$(".modal-trigger").on("click", function() {
+  loadDates();
+});
 
 // Movie generator
 $("#movie-btn").on("click", function findMovie() {
@@ -88,6 +91,7 @@ let randomMovieGenerator = function() {
                   movieDiv.append(movieTitle, movieStream, movieTrailer);
                   // Call meal generator function
                   mealGenerator();
+
                   savePlannedDates(title, fourDigitYear);
                 });
             }
@@ -162,11 +166,35 @@ let savePlannedDates = function(title, fourDigitYear) {
   let date = $("#date").val();
   console.log(date);
 
-  // add date to li
-  let savedDateEntry = $("<li>");
-  savedDateEntry.text(`${date}: Food Name + ${title} (${fourDigitYear})`);
+  // date info
+  let plannedDateInfo = `${date}: Food Name + ${title} (${fourDigitYear})`;
 
-  // append li to saved dates list
-  $("#planned-dates-list").append(savedDateEntry);
+  // load previous dates into savedDates array
+  if (savedDates.length > 0) {
+    let previousDates = localStorage.getItem("localDates");
+    previousDates = JSON.parse(previousDates);
+  }
+  
+  // add new date plan to array
+  savedDates.push(plannedDateInfo);
+
+  localStorage.setItem("localDates", JSON.stringify(savedDates));
 };
 
+// add function to load planned dates to modal
+let loadDates = function() {
+  let savedDatesEntries = localStorage.getItem("localDates");
+  if (!savedDatesEntries) {
+    return false
+  }
+  savedDatesEntries = JSON.parse(savedDatesEntries);
+
+  for (let x = 0; x < savedDatesEntries.length; x++) {
+    // add date to li
+    let plannedDateEntry = $("<li>");
+    plannedDateEntry.text(savedDatesEntries[x]);
+
+    // append li to saved dates list
+    $("#planned-dates-list").append(plannedDateEntry);
+  }
+};
