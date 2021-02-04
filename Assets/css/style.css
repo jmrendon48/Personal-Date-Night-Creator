@@ -89,7 +89,24 @@ a {
     margin-right: auto;
     display: block;
 }
+/* Music Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 50%; 
+    overflow: auto; 
+    background-color: white; 
+    background-color: white;
+}
+.modal1{
+    width: 50%; 
+    height: 30%; 
 
+}
+/* Music Modal end */
 h2 {
     margin: 0;
 }
