@@ -19,20 +19,23 @@ $(".modal-trigger").on("click", function() {
 // Movie generator
 $("#movie-btn").on("click", function findMovie() {
     userEntries();
-    randomMovieGenerator();
   });
 
   // add function to test validity of user entries
   let userEntries = function () {
   let releaseYear = $(".year-selector").val().trim();
   let genre = $("#genres").val();
+  let date = $("#date").val();
 
-  // check for invalid year input
-  if (genre === "genre") {
-      $("#error").text("Please choose a genre.");
-      $("#error").addClass("error");
+  // check for invalid input
+  if (date === "") {
+    $("#error").text("Please pick a date.");
+    $("#error").addClass("error");
   } else if (releaseYear > 2021 || releaseYear < 1900) {
-      $("#error").text("Please choose a year between 1900 and 2021.");
+    $("#error").text("Please choose a year between 1900 and 2021.");
+    $("#error").addClass("error");
+  } else if (genre === "genre") {
+      $("#error").text("Please choose a genre.");
       $("#error").addClass("error");
   } else if (parseInt(releaseYear) != releaseYear) {
       $("#error").text("Your year must be a four-digit number.");
@@ -40,6 +43,7 @@ $("#movie-btn").on("click", function findMovie() {
   } else {
     $("#error").text("");
     $("#error").removeClass("error");
+    randomMovieGenerator();
   }
 };
 
