@@ -16,28 +16,27 @@ $(document).ready(function(){
 // Movie generator
 $("#movie-btn").on("click", function findMovie() {
     userEntries();
-});
+    randomMovieGenerator();
+  });
 
   // add function to test validity of user entries
-let userEntries = function () {
+  let userEntries = function () {
   let releaseYear = $(".year-selector").val().trim();
   let genre = $("#genres").val();
-  let cuisineStyle = $("#food-types").val();
 
-  $("#error").addClass("error");
-  // check for invalid input
+  // check for invalid year input
   if (genre === "genre") {
       $("#error").text("Please choose a genre.");
+      $("#error").addClass("error");
   } else if (releaseYear > 2021 || releaseYear < 1900) {
       $("#error").text("Please choose a year between 1900 and 2021.");
+      $("#error").addClass("error");
   } else if (parseInt(releaseYear) != releaseYear) {
       $("#error").text("Your year must be a four-digit number.");
-  } else if (cuisineStyle === "cuisine-style") {
-    $(".error").text("Please choose a Cuisine Style"); 
+      $("#error").addClass("error");
   } else {
     $("#error").text("");
     $("#error").removeClass("error");
-    randomMovieGenerator();
   }
 };
 
@@ -82,7 +81,7 @@ let randomMovieGenerator = function() {
                   let movieDiv = $("#movie-title");
                   let movieTitle = $("<h3>").attr("class", "center-align title").html(response.Title);
                   let movieImg = $("<img>").attr({ "src": response.Poster, "class": "movie-poster"});
-                  let movieTrailer = $("<a>").attr("href", `https://www.youtube.com/results?search_query=${response.Title}trailer`).attr("target", "_blank").attr("class", "btn primary-btn trailer").html("View trailer");
+                  let movieTrailer = $("<a>").attr("href", `https://www.youtube.com/results?search_query=${response.Title}trailer`).attr("target", "_blank").attr("class", "btn btn-primary trailer").html("View trailer");
                   let movieStream = $("<a>").attr("href", `https://www.justwatch.com/us/search?q=${response.Title}`).attr("target", "_blank");
                   // append new content to movie section 
                   movieStream.append(movieImg);
@@ -115,44 +114,53 @@ let mealGenerator = function() {
 let createMeal = function(meal) {
     // remove previous content
     $(".food-image").remove();
-    $(".ingredient").remove();
     $(".food-title").remove();
     $(".videoWrapper").remove();
     $(".videoTitle").remove();
+    $(".foodArea").remove();
+    $(".foodCategory").remove();
+    $(".ingredient").remove();
+    $(".ingredientTitle").remove();
 
     // create variables from the data from API
     let mealImgDiv = $("#meal-image");
     let foodTitleDiv = $("#food-title");
-    let videoDiv = $("#videoWrapper")
+    let videoDiv = $("#videoWrapper");
+    let foodCategoryAreaDiv = $("#foodCategoryArea");
     let mealImg = $("<img>").attr({ "src": meal.strMealThumb, "class": "food-image"});
-    let ingredientList = $("#ingredient-list");
     let foodTitle = $("<h3>").attr("class", "food-title").text(meal.strMeal);
     let videoTitle = $("<h5>").attr("class", "videoTitle").text("Recipe Video");
+    let foodArea = $("<h5>").attr("class", "foodArea").text("Area: ").append($("<span>").attr("class", "food-category-area").text(meal.strArea));
+    let foodCategory = $("<h5>").attr("class", "foodCategory").text("Category: ").append($("<span>").attr("class", "food-category-area").text(meal.strCategory));
     let recipeVideo = "";
 
-	// Get all ingredients from the object. Up to 3
-	for(let i = 1; i <= 3; i++) {
-        let mealIngredient = $("<li>").attr("class", "ingredient").text(`${meal[`strIngredient${i}`]}`); 
-        ingredientList.append(mealIngredient);
-    }
-    // append new content to food section 
+    // append new content to food section  
     mealImgDiv.append(mealImg);
     foodTitleDiv.append(foodTitle);
+    foodCategoryAreaDiv.append(foodArea, foodCategory);
 
     // checking if the youtube video exists
     if (meal.strYoutube) {
         recipeVideo = $("<iframe>").attr("class", "videoWrapper").attr("src", `https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}`);
         videoDiv.append(videoTitle, recipeVideo);
-    } else {
-       recipeVideo = "";
+        console.log(meal.strSource);
+    } else if (meal.strYoutube.statusCode === "404" || meal.strYoutube === "") {
+      let ingredientTitle = $("<a>").attr("href", `${meal.strSource}`).attr("target", "_blank").attr("class", "btn btn-primary ingredientTitle").html("Ingredients:");
+      videoDiv.append(ingredientTitle);
+      
+      // Get all ingredients from the object. Up to 3
+        for(let i = 1; i <= 3; i++) {
+        let mealIngredient = $("<li>").attr("class", "ingredient").text(`${meal[`strIngredient${i}`]}`); 
+        videoDiv.append(mealIngredient);
     }
+  }
 };
 
 // add function to save planned dates
 let savePlannedDates = function(title, fourDigitYear) {
   // get value of submitted date
   let date = $("#date").val();
- // console.log(date);
+  console.log(date);
 
   // add date to li
   let savedDateEntry = $("<li>");
