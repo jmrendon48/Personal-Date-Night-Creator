@@ -177,7 +177,7 @@ let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
   let date = $("#date").val();
 
   // date info
-  let plannedDateInfo = `-${date}: ${foodName} (${foodAreaName}) + ${title} (${fourDigitYear})`;
+  let plannedDateInfo = `${date}: ${foodName} (${foodAreaName}) + ${title} (${fourDigitYear})`;
 
   // load previous dates into savedDates array
   if (savedDates.length > 0) {

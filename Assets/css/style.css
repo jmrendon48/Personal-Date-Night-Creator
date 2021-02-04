@@ -175,3 +175,9 @@ footer {
     font-size: 18px;
     padding: 2px;
 }
+
+@media screen and (min-width: 1220px) {
+    footer {
+        min-height: 259px;
+    }
+}
