@@ -123,6 +123,7 @@ let createMeal = function(meal, title, fourDigitYear) {
     $(".foodCategory").remove();
     $(".ingredient").remove();
     $(".ingredientTitle").remove();
+    $(".mealIngredientTitle").remove();
 
     // create variables from the data from API
     let mealImgDiv = $("#meal-image");
@@ -149,13 +150,18 @@ let createMeal = function(meal, title, fourDigitYear) {
         videoDiv.append(videoTitle, recipeVideo);
 
     } else {
-      let ingredientTitle = $("<a>").attr("href", `${meal.strSource}`).attr("target", "_blank").attr("class", "btn btn-primary ingredientTitle").html("Ingredients:");
+      // checking if the ingredients link exists
+      if (meal.strSource) {
+        let ingredientTitle = $("<a>").attr("href", `${meal.strSource}`).attr("target", "_blank").attr("class", "btn btn-primary ingredientTitle").html("VIEW INGREDIENTS");
         videoDiv.append(ingredientTitle);
-      
+      } else {
+        let ingredientTitle = $("<p>").attr("class", "mealIngredientTitle").text("Ingredients:");
+        videoDiv.append(ingredientTitle);
       // Get all ingredients from the object. Up to 3
         for(let i = 1; i <= 3; i++) {
         let mealIngredient = $("<li>").attr("class", "ingredient").text(`${meal[`strIngredient${i}`]}`); 
         videoDiv.append(mealIngredient);
+        }
       }
     }
     savePlannedDates(foodName, foodAreaName, title, fourDigitYear);
@@ -168,7 +174,6 @@ let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
 
   // date info
   let plannedDateInfo = `-${date}: ${foodName} (${foodAreaName}) + ${title} (${fourDigitYear})`;
-  console.log(plannedDateInfo)
 
   // load previous dates into savedDates array
   if (savedDates.length > 0) {
