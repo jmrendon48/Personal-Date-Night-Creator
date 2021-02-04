@@ -147,10 +147,10 @@ let createMeal = function(meal, title, fourDigitYear) {
     if (meal.strYoutube) {
         recipeVideo = $("<iframe>").attr("class", "videoWrapper").attr("src", `https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}`);
         videoDiv.append(videoTitle, recipeVideo);
-        console.log(meal.strSource);
-    } else if (meal.strYoutube.statusCode === "404" || meal.strYoutube === "") {
+
+    } else {
       let ingredientTitle = $("<a>").attr("href", `${meal.strSource}`).attr("target", "_blank").attr("class", "btn btn-primary ingredientTitle").html("Ingredients:");
-      videoDiv.append(ingredientTitle);
+        videoDiv.append(ingredientTitle);
       
       // Get all ingredients from the object. Up to 3
         for(let i = 1; i <= 3; i++) {
