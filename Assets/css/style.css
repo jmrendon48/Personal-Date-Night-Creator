@@ -168,7 +168,7 @@ footer {
     background-position: center;
     background-size: cover;
     width: 100%;
-    min-height: 200px;
+    min-height: 25vh;
 }
 
 .planned-date-entry {
@@ -176,8 +176,8 @@ footer {
     padding: 2px;
 }
 
-@media screen and (min-width: 1220px) {
+/* @media screen and (min-width: 1220px) {
     footer {
         min-height: 259px;
     }
-}
+} */
