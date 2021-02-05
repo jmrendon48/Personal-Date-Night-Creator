@@ -122,9 +122,19 @@ h2 {
     font-size: 23px;
 }
 
+.foodInstructions {
+    font-weight: bold;
+    font-size: 25px;
+}
+
 .mealIngredientTitle {
     font-weight: bold;
     font-size: 25px;
+}
+
+.mealIngredient {
+    font-weight: normal;
+    font-size: 16px;
 }
 
 #foodCategoryArea {
@@ -168,7 +178,7 @@ footer {
     background-position: center;
     background-size: cover;
     width: 100%;
-    min-height: 25vh;
+    min-height: 200px;
 }
 
 .planned-date-entry {
