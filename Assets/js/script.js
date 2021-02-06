@@ -15,19 +15,23 @@ $(document).ready(function(){
 $(".modal-trigger").on("click", function() {
   loadDates();
 });
+
 //modal for music
+//get modal
 var modal = document.getElementById("music-modal");
-
+//get btn for modal
 var btn = document.getElementById("musicBtn")
-
+//det span for modal
 var span = document.getElementsByClassName("close")[0];
-
+// function to open modal
 btn.onclick = function() {
   modal.style.display = "block";
 }
+//when x is clocked close modal
 span.onclick = function() {
   modal.style.display ="none";
 }
+
 // Movie generator
 $("#movie-btn").on("click", function findMovie() {
     userEntries();
@@ -211,4 +215,7 @@ let loadDates = function() {
     // append li to saved dates list
     $("#planned-dates-list").append(plannedDateEntry);
   }
+  $(document).ready(function(){
+$('content').load("music.html");
+  });
 };

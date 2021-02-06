@@ -104,7 +104,8 @@ a {
 .modal1{
     width: 50%; 
     height: 30%; 
-
+    font-weight: bold;
+    font-size: 20px;
 }
 /* Music Modal end */
 h2 {

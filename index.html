@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
     <!-- stylesheet for custom CSS -->
     <link rel="stylesheet" href="./Assets/css/style.css" />
+    
 </head>
 <body>
     <!-- page content -->
@@ -73,48 +74,20 @@
                 <!-- Modal Trigger -->
                 <button data-target="planned-dates-modal" class="btn modal-trigger light-blue darken-4">View Planned Dates</button>
             </div>
+                 <!--Music Modal-->
+
             <div>
+                <!--Music Modal Trigger-->
                 <button id ="musicBtn" class ="btn modal-trigger light-blue darken-4">Romantic music ❤️</button>
                 <div id="music-modal" class = "modal modal1">
-
+                <!--Modal Content-->
                 <div class ="modal-content">
                     <span class ="close">&times;</span>
-                    <p>Top Romantic Songs:</p>
-                    <h4>
-                        <a href ="https://www.youtube.com/watch?v=mMF6hsQNrBw&ab_channel=ChildishGambinoVEVO">Have Some Love by Childish Gambino</a>
-                    </h4>
-                   
-                    <h4>
-                        <a href ="https://www.youtube.com/watch?v=450p7goxZqg&ab_channel=johnlegendVEVO">ALl of Me by John Legend</a>
-                    </h4>
-
-                    <h4>
-                        <a href ="https://www.youtube.com/watch?v=AVPEP_KSldA&ab_channel=ArianaGrandeVevo">R.E.M by Ariana Grande</a>
-                    </h4>
-
-                    <h4>
-                        <a href ="https://www.youtube.com/watch?v=NtmorUXAwiI&ab_channel=MartinAxelsson">Romeo And Juliet by The Killers</a>
-                    </h4>
-
-                    <h4>
-                        <a href ="https://www.youtube.com/watch?v=tGRzz0oqgUE&ab_channel=JanelleMon%C3%A1e">Make Me Feel by Janelle Monae</a>
-                    </h4>
-
-                    <h4>
-                        <a href ="https://www.youtube.com/watch?v=mnH9FHfD0Zg&ab_channel=JohnCarloCarey">Lovesong by Adele</a>
-                    </h4>
-                    <h4>
-                        <a href ="https://www.youtube.com/watch?v=zNy4QGHhoTg&ab_channel=MariahCareyVEVO">With You by Mariah Carey</a>
-                    </h4>
-                    <h4>
-                        <a href ="https://www.youtube.com/watch?v=ox7RsX1Ee34&ab_channel=KendrickLamarVEVO">Love by Kendrick Lamar</a>
-                    </h4>
-                    <h4>
-                        <a href ="https://www.youtube.com/watch?v=ix0veVJdmFk&ab_channel=ChanceTheRapper-Topic">Blessing by Chance The Rapper</a>
-                    </h4>
-                    <h4>
-                        <a href ="https://www.youtube.com/watch?v=p1JPKLa-Ofc&ab_channel=Beyonc%C3%A9VEVO">Drunk in Love by Beyonce</a>
-                    </h4>
+                   <div id ="music-link" >
+                    Random Top Romantic songs
+                    <!--Load Music from Custom Music Libary-->
+                    <script type = "text/javascript" src="Assets/js/music.js"></script>
+                   </div>
                 </div>
                 </div>
             </div>
@@ -181,12 +154,15 @@
             </div>
         </div>
     </main>
-
     <!-- script for JQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- script for Materialize library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- script for custom js -->
     <script src="./Assets/js/script.js"></script>
+    <!--script for music js-->
+    <script src="./Assets/js/music.js"></script>
+
+    
 </body>
 </html>
