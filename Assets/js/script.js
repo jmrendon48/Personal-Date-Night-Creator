@@ -13,6 +13,7 @@ $(document).ready(function() {
 });  
 
 $(".modal-trigger").on("click", function() {
+  $(".planned-date-entry").remove();
   loadDates();
 });
 
@@ -187,11 +188,11 @@ let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
   // date info
   let plannedDateInfo = `${date}: ${foodName} (${foodAreaName}) + ${title} (${fourDigitYear})`;
 
-  // load previous dates into savedDates array
-  if (savedDates.length > 0) {
+
     let previousDates = localStorage.getItem("localDates");
     previousDates = JSON.parse(previousDates);
-  }
+    savedDates = previousDates;
+    console.log(previousDates);
   
   // add new date plan to array
   savedDates.push(plannedDateInfo);
@@ -206,7 +207,7 @@ let loadDates = function() {
     return false
   }
   savedDatesEntries = JSON.parse(savedDatesEntries);
-
+  
   for (let x = 0; x < savedDatesEntries.length; x++) {
     // add date to li
     let plannedDateEntry = $("<li>");

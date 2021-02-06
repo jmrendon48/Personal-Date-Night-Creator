@@ -139,7 +139,7 @@ h2 {
 
 .mealIngredient {
     font-weight: normal;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 #foodCategoryArea {
@@ -188,7 +188,7 @@ footer {
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 28vh;
+    height: 27vh;
 }
 
 .planned-date-entry {
@@ -196,8 +196,3 @@ footer {
     padding: 2px;
 }
 
-/* @media screen and (min-width: 1220px) {
-    footer {
-        min-height: 259px;
-    }
-} */
