@@ -81,7 +81,7 @@ a {
 .food-section, .movie-section {
     border: 2px solid var(--secondary-color);
     border-radius: 5px;
-    margin: 20px 5px;
+    margin: 20px 0;
     padding: 10px;
 }
 
