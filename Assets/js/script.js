@@ -188,7 +188,7 @@ let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
   // date info
   let plannedDateInfo = `${date}: ${foodName} (${foodAreaName}) + ${title} (${fourDigitYear})`;
 
-  
+    savedDates = [];
     let previousDates = localStorage.getItem("localDates");
     previousDates = JSON.parse(previousDates);
     if (previousDates) {
@@ -196,8 +196,6 @@ let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
     }
     console.log(previousDates);
   
-
-
   // add new date plan to array
   savedDates.push(plannedDateInfo);
 
