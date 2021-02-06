@@ -11,10 +11,15 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
 }
 
 .main {
     margin-bottom: 0;
+    flex: 1 0 auto;
 }
 
 h1 {
@@ -173,12 +178,17 @@ h2 {
     border-radius: 10px;
 }
 
+.footer-container {
+    padding: 0 !important;
+    width: 100%;
+}
+
 footer {
     background-image: url(../images/Movie-image.png);
     background-position: center;
     background-size: cover;
     width: 100%;
-    min-height: 200px;
+    height: 28vh;
 }
 
 .planned-date-entry {
