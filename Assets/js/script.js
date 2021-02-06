@@ -128,6 +128,8 @@ let createMeal = function(meal, title, fourDigitYear) {
     $(".ingredient").remove();
     $(".ingredientTitle").remove();
     $(".mealIngredientTitle").remove();
+    $(".foodInstructions").remove();
+    $(".mealIngredient").remove();
 
     // create variables from the data from API
     let mealImgDiv = $("#meal-image");
@@ -159,12 +161,18 @@ let createMeal = function(meal, title, fourDigitYear) {
         let ingredientTitle = $("<a>").attr("href", `${meal.strSource}`).attr("target", "_blank").attr("class", "btn btn-primary ingredientTitle").html("VIEW INGREDIENTS");
         videoDiv.append(ingredientTitle);
       } else {
-        let ingredientTitle = $("<p>").attr("class", "mealIngredientTitle").text("Ingredients:");
+      
+        let foodInstructions = $("<p>").attr("class", "foodInstructions").text("Ingredient Instructions:").append($("<p>").attr("class", "mealIngredient").text(meal.strInstructions));
+        videoDiv.append(foodInstructions);
+
+        if (meal.strInstructions === "") {
+            let ingredientTitle = $("<p>").attr("class", "mealIngredientTitle").text("Ingredients:");
         videoDiv.append(ingredientTitle);
       // Get all ingredients from the object. Up to 3
         for(let i = 1; i <= 3; i++) {
-        let mealIngredient = $("<li>").attr("class", "ingredient").text(`${meal[`strIngredient${i}`]}`); 
+        let mealIngredient = $("<li>").attr("class", "ingredient").text(`${meal[`strMeasure${i}`]} ${meal[`strIngredient${i}`]}`); 
         videoDiv.append(mealIngredient);
+        }
         }
       }
     }
