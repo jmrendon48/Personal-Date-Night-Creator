@@ -1,0 +1,216 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+.header-container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+.main {
+    margin-bottom: 0;
+    flex: 1 0 auto;
+}
+
+h1 {
+    margin: 20px;
+    color: var(--primary-color);
+}
+
+form {
+    margin: 20px 10px;
+}
+
+#date, #year {
+    padding-left: 3px;
+}
+
+.datepicker::-webkit-inner-spin-button, .datepicker::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.date-select-container, .genre-select-container, .food-type-select-container, .submit-button-container {
+    margin: auto;
+    margin: 0;
+    padding: 10px;
+}
+
+#date, #year {
+    background: var(--primary-color);
+    border-bottom: 0;
+    border-radius: 5px;
+}
+
+.date-select-container label input {
+    margin: 10px;
+}
+
+select {
+    display: block;
+}
+
+label {
+    font-size: 20px;
+    color: var(--secondary-color);
+}
+
+a {
+    text-decoration: none;
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.planned-dates-container {
+    text-align: center;
+}
+
+.food-section, .movie-section {
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.food-title {
+    text-align: center;
+}
+
+.modal-trigger {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+h2 {
+    margin: 0;
+}
+
+.food-image {
+    width: 65%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.error {
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+}
+
+.foodArea, .foodCategory {
+    font-weight: bold;
+}
+
+.ingredient {
+    list-style-type: none;
+    font-size: 23px;
+}
+
+.foodInstructions, .mealIngredientTitle {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.mealIngredient {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+#foodCategoryArea {
+    padding: 0 0 0 25px;
+}
+
+.food-category-area {
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.recipe-video-container {
+    padding: 0 35px 0 35px;
+}
+
+#videoWrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.videoWrapper-bottom {
+    padding-bottom: 56.25%; /* 16:9 */
+}
+
+.videoWrapper {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.movie-poster {
+    width: 80%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.trailer, .ingredientTitle {
+    background-color: darkblue;
+    border-radius: 10px;
+}
+
+.footer-container {
+    padding: 0 !important;
+    width: 100%;
+}
+
+footer {
+    background-image: url(../images/Movie-image.png);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 27vh;
+}
+
+.planned-date-entry {
+    font-size: 18px;
+    padding: 2px;
+}
+
+@media only screen and (max-width: 992px) {
+    form {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}
