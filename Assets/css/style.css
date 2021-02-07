@@ -17,13 +17,6 @@ body {
     position: relative;
 }
 
-.header-container {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-}
-
 .main {
     margin-bottom: 0;
     flex: 1 0 auto;
@@ -206,6 +199,10 @@ footer {
     padding: 2px;
 }
 
+@media screen and (min-width: 800px) {
+   
+}
+
 @media only screen and (max-width: 992px) {
     form {
         width: 300px;
@@ -213,4 +210,12 @@ footer {
         margin-right: auto;
         display: block;
     }
+
+    header div h1 {
+        font-size: 2rem;
+    }
+
+
 }
+
+
