@@ -21,6 +21,7 @@ creating a personal date night experience.
 -[The Meal Database API](https://www.themealdb.com/api/json/v1/1/random.php "The Meal Database API")
 
 ## Screenshot
+![project-img](https://user-images.githubusercontent.com/74809116/107137956-04e71b00-68c6-11eb-98f6-cf40ef2f4e50.PNG)
 
 ## Link to Deployed Application
 
