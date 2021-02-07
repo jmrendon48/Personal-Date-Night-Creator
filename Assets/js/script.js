@@ -136,6 +136,8 @@ let createMeal = function(meal, title, fourDigitYear) {
     let mealImgDiv = $("#meal-image");
     let foodTitleDiv = $("#food-title");
     let videoDiv = $("#videoWrapper");
+    videoDiv.removeClass("videoWrapper-bottom");
+    let ingredientsDiv = $("#ingredientsWrapper");
     let foodCategoryAreaDiv = $("#foodCategoryArea");
     let mealImg = $("<img>").attr({ "src": meal.strMealThumb, "class": "food-image"});
     let foodTitle = $("<h3>").attr("class", "food-title").text(meal.strMeal);
@@ -155,6 +157,7 @@ let createMeal = function(meal, title, fourDigitYear) {
     if (meal.strYoutube) {
         recipeVideo = $("<iframe>").attr("class", "videoWrapper").attr("src", `https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}`);
         videoDiv.append(videoTitle, recipeVideo);
+        videoDiv.addClass("videoWrapper-bottom");
 
     } else {
       // checking if the ingredients link exists
@@ -164,7 +167,7 @@ let createMeal = function(meal, title, fourDigitYear) {
       } else {
       
         let foodInstructions = $("<p>").attr("class", "foodInstructions").text("Ingredient Instructions:").append($("<p>").attr("class", "mealIngredient").text(meal.strInstructions));
-        videoDiv.append(foodInstructions);
+        ingredientsDiv.append(foodInstructions);
 
         if (meal.strInstructions === "") {
             let ingredientTitle = $("<p>").attr("class", "mealIngredientTitle").text("Ingredients:");
