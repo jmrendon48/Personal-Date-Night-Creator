@@ -15,6 +15,7 @@ $(document).ready(function() {
 $(".modal-trigger").on("click", function() {
   $(".planned-date-entry").remove();
   loadDates();
+  
 });
 
 // Movie generator
@@ -155,7 +156,10 @@ let createMeal = function(meal, title, fourDigitYear) {
     if (meal.strYoutube) {
         recipeVideo = $("<iframe>").attr("class", "videoWrapper").attr("src", `https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}`);
         videoDiv.append(videoTitle, recipeVideo);
-
+    }
+    else if (meal.strYoutube === "null") {
+      let foodInstructions = $("<p>").attr("class", "foodInstructions").text("Ingredient Instructions:").append($("<p>").attr("class", "mealIngredient").text(meal.strInstructions));
+      videoDiv.append(foodInstructions);
     } else {
       // checking if the ingredients link exists
       if (meal.strSource) {
@@ -188,11 +192,11 @@ let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
   // date info
   let plannedDateInfo = `${date}: ${foodName} (${foodAreaName}) + ${title} (${fourDigitYear})`;
 
-
+  // load previous dates into savedDates array
+  if (savedDates.length > 0) {
     let previousDates = localStorage.getItem("localDates");
     previousDates = JSON.parse(previousDates);
-    savedDates = previousDates;
-    console.log(previousDates);
+  }
   
   // add new date plan to array
   savedDates.push(plannedDateInfo);
@@ -202,12 +206,13 @@ let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
 
 // add function to load planned dates to modal
 let loadDates = function() {
+
   let savedDatesEntries = localStorage.getItem("localDates");
   if (!savedDatesEntries) {
     return false
   }
   savedDatesEntries = JSON.parse(savedDatesEntries);
-  
+
   for (let x = 0; x < savedDatesEntries.length; x++) {
     // add date to li
     let plannedDateEntry = $("<li>");
