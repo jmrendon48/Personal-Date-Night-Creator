@@ -77,7 +77,6 @@ a {
     text-align: center;
 }
 
-
 .food-section, .movie-section {
     border: 2px solid var(--secondary-color);
     border-radius: 5px;
@@ -205,5 +204,14 @@ footer {
 .planned-date-entry {
     font-size: 18px;
     padding: 2px;
+}
+
+@media only screen and (max-width: 992px) {
+    form {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
 }
 
