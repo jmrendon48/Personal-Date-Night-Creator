@@ -192,13 +192,6 @@ let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
   // date info
   let plannedDateInfo = `${date}: ${foodName} (${foodAreaName}) + ${title} (${fourDigitYear})`;
 
-<<<<<<< HEAD
-  // load previous dates into savedDates array
-  if (savedDates.length > 0) {
-    let previousDates = localStorage.getItem("localDates");
-    previousDates = JSON.parse(previousDates);
-  }
-=======
     savedDates = [];
     let previousDates = localStorage.getItem("localDates");
     previousDates = JSON.parse(previousDates);
@@ -206,14 +199,12 @@ let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
       savedDates = previousDates;
     }
     console.log(previousDates);
->>>>>>> 73cb76419c65ac774c6f612b308b8a200d1b16c3
   
   // add new date plan to array
   savedDates.push(plannedDateInfo);
 
   localStorage.setItem("localDates", JSON.stringify(savedDates));
 };
-
 // add function to load planned dates to modal
 let loadDates = function() {
 
