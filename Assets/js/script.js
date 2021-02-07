@@ -137,6 +137,8 @@ let createMeal = function(meal, title, fourDigitYear) {
     let mealImgDiv = $("#meal-image");
     let foodTitleDiv = $("#food-title");
     let videoDiv = $("#videoWrapper");
+    videoDiv.removeClass("videoWrapper-bottom");
+    let ingredientsDiv = $("#ingredientsWrapper");
     let foodCategoryAreaDiv = $("#foodCategoryArea");
     let mealImg = $("<img>").attr({ "src": meal.strMealThumb, "class": "food-image"});
     let foodTitle = $("<h3>").attr("class", "food-title").text(meal.strMeal);
@@ -156,10 +158,8 @@ let createMeal = function(meal, title, fourDigitYear) {
     if (meal.strYoutube) {
         recipeVideo = $("<iframe>").attr("class", "videoWrapper").attr("src", `https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}`);
         videoDiv.append(videoTitle, recipeVideo);
-    }
-    else if (meal.strYoutube === "null") {
-      let foodInstructions = $("<p>").attr("class", "foodInstructions").text("Ingredient Instructions:").append($("<p>").attr("class", "mealIngredient").text(meal.strInstructions));
-      videoDiv.append(foodInstructions);
+        videoDiv.addClass("videoWrapper-bottom");
+
     } else {
       // checking if the ingredients link exists
       if (meal.strSource) {
@@ -168,7 +168,7 @@ let createMeal = function(meal, title, fourDigitYear) {
       } else {
       
         let foodInstructions = $("<p>").attr("class", "foodInstructions").text("Ingredient Instructions:").append($("<p>").attr("class", "mealIngredient").text(meal.strInstructions));
-        videoDiv.append(foodInstructions);
+        ingredientsDiv.append(foodInstructions);
 
         if (meal.strInstructions === "") {
             let ingredientTitle = $("<p>").attr("class", "mealIngredientTitle").text("Ingredients:");
@@ -192,11 +192,21 @@ let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
   // date info
   let plannedDateInfo = `${date}: ${foodName} (${foodAreaName}) + ${title} (${fourDigitYear})`;
 
+<<<<<<< HEAD
   // load previous dates into savedDates array
   if (savedDates.length > 0) {
     let previousDates = localStorage.getItem("localDates");
     previousDates = JSON.parse(previousDates);
   }
+=======
+    savedDates = [];
+    let previousDates = localStorage.getItem("localDates");
+    previousDates = JSON.parse(previousDates);
+    if (previousDates) {
+      savedDates = previousDates;
+    }
+    console.log(previousDates);
+>>>>>>> 73cb76419c65ac774c6f612b308b8a200d1b16c3
   
   // add new date plan to array
   savedDates.push(plannedDateInfo);
