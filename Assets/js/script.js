@@ -25,6 +25,8 @@ $("#movie-btn").on("click", function findMovie() {
 
   // add function to test validity of user entries
   let userEntries = function () {
+  let currentTime = new Date()
+  let currentYear = currentTime.getFullYear();
   let releaseYear = $(".year-selector").val().trim();
   let genre = $("#genres").val();
   let date = $("#date").val();
@@ -33,7 +35,7 @@ $("#movie-btn").on("click", function findMovie() {
   if (date === "") {
     $("#error").text("Please pick a date.");
     $("#error").addClass("error");
-  } else if (releaseYear > 2021 || releaseYear < 1900) {
+  } else if (releaseYear > currentYear || releaseYear < 1900) {
     $("#error").text("Please choose a year between 1900 and 2021.");
     $("#error").addClass("error");
   } else if (genre === "genre") {
@@ -198,8 +200,6 @@ let savePlannedDates = function(foodName, foodAreaName, title, fourDigitYear) {
     if (previousDates) {
       savedDates = previousDates;
     }
-    console.log(previousDates);
-  
   // add new date plan to array
   savedDates.push(plannedDateInfo);
 
