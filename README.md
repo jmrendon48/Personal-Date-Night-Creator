@@ -12,7 +12,7 @@ creating a personal date night experience.
 
 ## JavaScript Libraries
 
-- JQuery
+- jQuery
 
 ## APIs
 
